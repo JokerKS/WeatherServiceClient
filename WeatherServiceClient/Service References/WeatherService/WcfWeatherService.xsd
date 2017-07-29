@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/WcfWeatherService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WcfWeatherService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="NotCorrectLoginOrPassword">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceException">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="NotCorrectLoginOrPassword" nillable="true" type="tns:NotCorrectLoginOrPassword" />
+  <xs:complexType name="ServiceException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ServiceException" nillable="true" type="tns:ServiceException" />
+  <xs:complexType name="CityNotFound">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceException">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CityNotFound" nillable="true" type="tns:CityNotFound" />
+  <xs:complexType name="UniqueClientIdNotFound">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceException">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UniqueClientIdNotFound" nillable="true" type="tns:UniqueClientIdNotFound" />
+  <xs:complexType name="ServerHasNoWeatherData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceException">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ServerHasNoWeatherData" nillable="true" type="tns:ServerHasNoWeatherData" />
+  <xs:complexType name="CountryNotFound">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ServiceException">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CountryNotFound" nillable="true" type="tns:CountryNotFound" />
+  <xs:complexType name="OpenWeather">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CityId" type="xs:int" />
+      <xs:element minOccurs="0" name="Clouds" nillable="true" type="tns:Clouds" />
+      <xs:element minOccurs="0" name="Forecast" nillable="true" type="tns:Forecast" />
+      <xs:element minOccurs="0" name="Wind" nillable="true" type="tns:Wind" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OpenWeather" nillable="true" type="tns:OpenWeather" />
+  <xs:complexType name="Clouds">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CityID" type="xs:int" />
+      <xs:element minOccurs="0" name="Cloudiness" type="xs:int" />
+      <xs:element minOccurs="0" name="OpenWeather" nillable="true" type="tns:OpenWeather" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Clouds" nillable="true" type="tns:Clouds" />
+  <xs:complexType name="Forecast">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CityID" type="xs:int" />
+      <xs:element minOccurs="0" name="Humidity" type="xs:int" />
+      <xs:element minOccurs="0" name="OpenWeather" nillable="true" type="tns:OpenWeather" />
+      <xs:element minOccurs="0" name="Pressure" type="xs:int" />
+      <xs:element minOccurs="0" name="Temp" type="xs:double" />
+      <xs:element minOccurs="0" name="TempMax" type="xs:double" />
+      <xs:element minOccurs="0" name="TempMin" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Forecast" nillable="true" type="tns:Forecast" />
+  <xs:complexType name="Wind">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CityID" type="xs:int" />
+      <xs:element minOccurs="0" name="Direction" type="xs:int" />
+      <xs:element minOccurs="0" name="OpenWeather" nillable="true" type="tns:OpenWeather" />
+      <xs:element minOccurs="0" name="Speed" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Wind" nillable="true" type="tns:Wind" />
+</xs:schema>
